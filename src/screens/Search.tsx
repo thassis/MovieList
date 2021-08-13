@@ -73,6 +73,10 @@ const Search = ({ navigation }: Props) => {
                 Alert.alert("Filme não encontrado", "Tente buscar com outra palavra chave ou Ano");
             }
         }).catch(error => {
+            setLoading(false);
+            onChangeYear("");
+            setMovies([]);
+            Alert.alert("Filme não encontrado", "Tente buscar com outra palavra chave ou Ano");
             console.log("error", error);
         })
     }
