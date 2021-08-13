@@ -24,9 +24,9 @@ Decisões
 Foi criada a pasta src para organizar o projeto e simplificar possíveis evoluções, dentro dela há as seguintes subpastas:
   - assets: será armazenada todas as imagens usadas;
   - components: quaisquer components que venham a ser criados e que podem ser utilizados em diferentes telas;
-  - constants: 
-      - arquivos apis => contém o nome de todas as rotas que o app poderá utilizar
-      - colors => definido de cores que o aplicativo vai usar, para evitar diferentes cores na mesma aplicação
+  - constants - possui os seguintes arquivos:
+      - apis => nome de todas as rotas que o app poderá utilizar
+      - colors => definição de cores que o aplicativo vai usar, para evitar diferentes cores na mesma aplicação
       - config => quaisquer constantes de configuração, como uma apiKey.
   - redux: contém todos os reducers e store
   - screens: pasta com todas as telas do app
@@ -54,7 +54,7 @@ Na raíz do projeto rode:
   1. cd ios
   2. pod install
   3. cd ..
-  4. npx react-native run-android
+  4. npx react-native run-ios
   
 TODO: Testes Unitários (Jest)
 -------------
