@@ -7,6 +7,7 @@ import {
 	Text,
 	useColorScheme,
 	View,
+	Image
 } from 'react-native';
 
 import {
@@ -14,7 +15,7 @@ import {
 	Header,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Search from './src/screens/Search';
@@ -25,22 +26,47 @@ import { Provider as PaperProvider } from 'react-native-paper';
 
 import store from './src/redux/store';
 
+import colors from './src/constants/colors';
+
 const Stack = createNativeStackNavigator();
 
+const headerStyle = { backgroundColor: colors.header };
+
+const LogoTitle: React.FC = () => {
+	return (
+		<View style={styles.center}>
+			<Image
+				style={{ width: 50, height: 50 }}
+				source={require('./src/assets/logo.png')}
+			/>
+			<Text style={styles.textTitle}>Lista de Filmes</Text>
+		</View>
+	);
+}
+
+const MyTheme = {
+	...DefaultTheme,
+	colors: {
+		...DefaultTheme.colors,
+		background: colors.background,
+	},
+};
+
+
 const App = () => {
-	const isDarkMode = useColorScheme() === 'dark';
-
-	const backgroundStyle = {
-		backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-	};
-
 	return (
 		<Provider store={store}>
 			<PaperProvider>
-				<NavigationContainer>
+				<StatusBar
+					animated={true}
+					backgroundColor={colors.statusBar}
+					barStyle={'default'}
+					showHideTransition={'fade'}
+					hidden={false} />
+				<NavigationContainer theme={MyTheme}>
 					<Stack.Navigator initialRouteName="Search">
-						<Stack.Screen name="Search" component={Search} />
-						<Stack.Screen name="Details" component={Details} />
+						<Stack.Screen options={{ headerTitle: props => <LogoTitle {...props} />, headerStyle, headerTintColor: colors.headerTitle }} name="Search" component={Search} />
+						<Stack.Screen options={{ title: 'Detalhes do Filme', headerStyle, headerTintColor: colors.headerTitle }} name="Details" component={Details} />
 					</Stack.Navigator>
 				</NavigationContainer>
 			</PaperProvider>
@@ -49,22 +75,21 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-	sectionContainer: {
-		marginTop: 32,
-		paddingHorizontal: 24,
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		backgroundColor: '#ECF0F1'
 	},
-	sectionTitle: {
-		fontSize: 24,
-		fontWeight: '600',
+	center: {
+		flex: 1,
+		alignItems: "center",
+		flexDirection: "row",
 	},
-	sectionDescription: {
-		marginTop: 8,
-		fontSize: 18,
-		fontWeight: '400',
-	},
-	highlight: {
-		fontWeight: '700',
-	},
+	textTitle: {
+		color: colors.headerTitle,
+		fontSize: 20,
+		marginLeft: 30,
+	}
 });
 
 export default App;
