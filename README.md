@@ -36,6 +36,11 @@ O projeto foi inicializado a partir do template react-native-template-typescript
 ### Redux
 A única informação importante de se compartilhar por todos os componentes/telas do app é o filme clicado, portanto essa informação foi salva no Redux.
 
+### Informações utilizadas
+1. A média da avaliação foi preciso ser calculada em porcentagem, já que algumas vinham no formato de porcentagem e outras numa escala. Por isso, todas foram transformadas em porcentagem, para poder calcular a média de fato.
+2. Alguns filmes não possuem Poster, então foi preciso escolher uma imagem padrão para tais casos.
+3. Informações consideradas para exibir na Tela de Detalhes do filme: Título, Imagem, Atores, Gênero, País, Avaliação Média, Ano e o ID do IMDB, caso a pessoa queira fazer uma consulta específica a ele. 
+
 Como usar o projeto
 -------------
 Baixe a apk: https://drive.google.com/file/d/1ogrqNc9szmlBbTmCJu2VpIEh-4aWQccw/view?usp=sharing
