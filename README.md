@@ -10,12 +10,13 @@
 
 Premissas
 -------------
-1. Usar Redux para controle de possíveis estados globais
-2. Estruturar o app para que fique escalável
-3. Desenvolver primeiro as funcionalidades exigidas 
-4. Utilizar componentes prontos para simplificar o design
-5. Usar Typescript
-6. Usar Testes unitários (Jest);
+1. Chamar uma API para pesquisar filmes e obter diversas informações dos mesmos - foi utilizada a que se encontra neste site: http://www.omdbapi.com
+2. Usar Redux para controle de possíveis estados globais
+3. Estruturar o app para que fique escalável
+4. Desenvolver primeiro as funcionalidades exigidas 
+5. Utilizar componentes prontos para simplificar o design
+6. Usar Typescript
+7. Usar Testes unitários (Jest);
 
 Decisões
 -------------
